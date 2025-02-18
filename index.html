@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyeglasses Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .navbar-custom {
+            padding: 10px 0;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .carousel-image {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 500px;
+        }
+
+        .nav-icons a {
+            font-size: 22px;
+            color: black;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        .nav-icons a:hover {
+            color: #007bff;
+        }
+
+        .bottom-nav {
+            background-color: #eef2f7;
+            padding: 12px 0;
+        }
+
+        .bottom-nav .nav {
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .bottom-nav .nav-link {
+            color: black;
+            font-size: 14px;
+            padding: 5px 15px;
+        }
+
+        .cards {
+            margin-top: 600px;
+            padding-bottom: 100px;
+        }
+
+        .card-group {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .card {
+            min-height: 600px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .dynamic-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="https://www.eyeglasses.pk/media/logo/stores/4/pk-logo_new1__1_.png" alt="Logo">
+            </a>
+
+            <form class="d-flex search-bar">
+                <input class="form-control" type="search" placeholder="Search entire store here..." aria-label="Search">
+            </form>
+
+            <div class="nav-icons">
+                <a href="#"><i class="bi bi-cart3"></i></a>
+                <a href="#"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid bottom-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="#">Mirror</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Eyeglasses</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Men</a></li>
+                        <li><a class="dropdown-item" href="#">Women</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Sunglasses</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Designer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">1-2 Day Rush</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Past Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Help Center</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                        <li><a class="dropdown-item" href="#">Support</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="carousel-item active">
+        <img src="https://www.eyeglasses.pk/media/wysiwyg/Get-Stylish-_-Trendy-Eyeglasses.jpg"
+            class="d-block w-100 carousel-image" alt="...">
+    </div>
+
+    <div class="cards">
+        <div class="card-group">
+            <div class="card" style="width: auto; margin: 0 10px;">
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/men-glasses..jpg" class="card-img-top" alt="..."
+                    style="width: 100%; height: auto; object-fit: contain;">
+            </div>
+            <div class="card" style="width: auto; margin: 0 10px;">
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/women-glasses_1.jpg" class="card-img-top" alt="..."
+                    style="width: 100%; height: auto; object-fit: contain;">
+            </div>
+            <div class="card" style="width: auto; margin: 0 10px;">
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/Kid.jpg" class="card-img-top" alt="..."
+                    style="width: 100%; height: auto; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+    
+    <div class="buttons-container">
+        <button class="dynamic-btn">Button 1</button>
+        <button class="dynamic-btn">Button 2</button>
+        <button class="dynamic-btn">Button 3</button>
+    </div>
+    
+
+</body>
+
+</html>
