@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eyeglasses Navbar</title>
+    <title>Responsive Navbar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <style>
         .navbar-custom {
             padding: 10px 0;
@@ -16,16 +15,6 @@
 
         .logo img {
             height: 80px;
-        }
-
-        .carousel-image {
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-
-        .search-bar {
-            flex-grow: 1;
-            max-width: 500px;
         }
 
         .nav-icons a {
@@ -36,7 +25,24 @@
         }
 
         .nav-icons a:hover {
-            color: #007bff;
+            color: black;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 500px;
+        }
+
+        @media (max-width: 991px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mobile-nav {
+                display: none;
+            }
         }
 
         .bottom-nav {
@@ -46,7 +52,7 @@
 
         .bottom-nav .nav {
             justify-content: center;
-            gap: 30px;
+            gap: 12px;
         }
 
         .bottom-nav .nav-link {
@@ -55,55 +61,369 @@
             padding: 5px 15px;
         }
 
-        .cards {
-            margin-top: 600px;
-            padding-bottom: 100px;
+        .mobile-search {
+            display: none;
         }
 
-        .card-group {
-            display: flex;
-            justify-content: center;
-            gap: 0;
+        @media (max-width: 991px) {
+            .mobile-search {
+                display: block;
+                padding: 10px;
+                background: #f8f9fa;
+            }
         }
 
-        .card {
-            min-height: 600px;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
+        .mobile-banner {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
         }
 
-        .card-body {
-            flex-grow: 1;
-        }
-
-        .card img {
-            height: 300px;
+        .mobile-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
             object-fit: cover;
         }
 
-        .buttons-container {
+        @media (max-width: 768px) {
+            .mobile-banner {
+                height: auto;
+            }
+
+            .mobile-banner img {
+                height: 100%;
+                max-height: 400px;
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-banner img {
+                max-height: 450px;
+            }
+        }
+
+
+        .glasses-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .glasses-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .glasses-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .glasses-btn {
+            background-color: #c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .glasses-btn:hover {
+            background-color: #900;
+        }
+
+        .glasses-gallery div {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mission-section {
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .mission-section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .mission-section p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container-1 {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
             flex-wrap: wrap;
+            overflow: hidden;
+        }
+
+        .left,
+        .right {
+            width: 50%;
+        }
+
+        .left img,
+        .right img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            background-color: #c91c1c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            width: auto;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #a81717;
+        }
+
+        @media (max-width: 768px) {
+            .container-1 {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+
+        .eyewear-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .eyewear-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .eyewear-item {
+            text-align: center;
+            max-width: 350px;
+        }
+
+        .eyewear-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #c00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #900;
+        }
+
+        @media (max-width: 768px) {
+            .eyewear-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .eyewear-item {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        .reviews {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .review {
+            width: 33.33%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #fff;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .stars {
+            color: orange;
+        }
+
+        .product-name {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .prev,
+        .next {
+            background: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: #ddd;
+        }
+
+        .powered-by {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background: #f8f8f8;
+            padding: 40px 10%;
+        }
+
+        .footer .subscribe {
+            display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 50px;
+            margin-bottom: 30px;
         }
 
-        .dynamic-btn {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+        .subscribe input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .subscribe button {
+            background: black;
+            color: white;
             border: none;
+            padding: 10px 20px;
             cursor: pointer;
+            border-radius: 5px;
         }
 
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
+        .footer-content div {
+            width: 22%;
+        }
+
+        .footer-content h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-content ul {
+            list-style: none;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-content div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .footer-content h3 {
+                cursor: pointer;
+                background: #ddd;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .footer-content ul {
+                display: none;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom desktop-nav">
         <div class="container">
             <a class="navbar-brand logo" href="#">
                 <img src="https://www.eyeglasses.pk/media/logo/stores/4/pk-logo_new1__1_.png" alt="Logo">
@@ -120,7 +440,56 @@
         </div>
     </nav>
 
-    <div class="container-fluid bottom-nav">
+    <nav class="navbar navbar-light bg-light navbar-custom mobile-nav">
+        <div class="container">
+            <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                <i class="bi bi-list" style="font-size: 28px;"></i>
+            </button>
+
+            <a class="navbar-brand logo mx-auto" href="#">
+                <img src="https://www.eyeglasses.pk/media/logo/stores/4/pk-logo_new1__1_.png" alt="Logo">
+            </a>
+
+            <div class="nav-icons">
+                <a href="#"><i class="bi bi-cart3"></i></a>
+                <a href="#"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#">Mirror</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Eyeglasses</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Men</a></li>
+                        <li><a class="dropdown-item" href="#">Women</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Sunglasses</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Designer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">1-2 Day Rush</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Past Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Wishlist</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Help Center</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                        <li><a class="dropdown-item" href="#">Support</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid bottom-nav desktop-nav">
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item"><a class="nav-link" href="#">Mirror</a></li>
@@ -148,34 +517,158 @@
         </div>
     </div>
 
-    <div class="carousel-item active">
-        <img src="https://www.eyeglasses.pk/media/wysiwyg/Get-Stylish-_-Trendy-Eyeglasses.jpg"
-            class="d-block w-100 carousel-image" alt="...">
+    <div class="mobile-search">
+        <div class="container">
+            <form class="d-flex">
+                <input class="form-control" type="search" placeholder="Search entire store here..." aria-label="Search">
+            </form>
+        </div>
     </div>
 
-    <div class="cards">
-        <div class="card-group">
-            <div class="card" style="width: auto; margin: 0 10px;">
-                <img src="https://www.eyeglasses.pk/media/wysiwyg/men-glasses..jpg" class="card-img-top" alt="..."
-                    style="width: 100%; height: auto; object-fit: contain;">
+    <div class="mobile-banner">
+        <img src="https://www.eyeglasses.pk/media/wysiwyg/Get-Stylish-_-Trendy-Eyeglasses.jpg" alt="Banner Image">
+    </div>
+
+    <div class="container">
+        <div class="glasses-gallery">
+            <div>
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/men-glasses..jpg" alt="Man Glasses">
+                <button class="glasses-btn">Men's Eyeglasses</button>
             </div>
-            <div class="card" style="width: auto; margin: 0 10px;">
-                <img src="https://www.eyeglasses.pk/media/wysiwyg/women-glasses_1.jpg" class="card-img-top" alt="..."
-                    style="width: 100%; height: auto; object-fit: contain;">
+            <div>
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/women-glasses_1.jpg" alt="Woman Glasses">
+                <button class="glasses-btn">Women's Eyeglasses</button>
             </div>
-            <div class="card" style="width: auto; margin: 0 10px;">
-                <img src="https://www.eyeglasses.pk/media/wysiwyg/Kid.jpg" class="card-img-top" alt="..."
-                    style="width: 100%; height: auto; object-fit: contain;">
+            <div>
+                <img src="https://www.eyeglasses.pk/media/wysiwyg/Kid.jpg" alt="Kid Glasses">
+                <button class="glasses-btn">Kid's Eyeglasses</button>
             </div>
         </div>
     </div>
-    
-    <div class="buttons-container">
-        <button class="dynamic-btn">Button 1</button>
-        <button class="dynamic-btn">Button 2</button>
-        <button class="dynamic-btn">Button 3</button>
+
+    <div class="mission-section">
+        <h2>"OUR MISSION IS TO TAKE CARE OF YOUR VISION"</h2>
+        <p>Goggles4u UK has revolutionized the eyewear industry by offering discounted prescription eyeglasses &
+            sunglasses to Men, Women & Kids.<br>
+            Whether you're looking for Distance, Reading, Bifocals or even Progressive lenses, we've got them all in a
+            variety of options from clear, tinted & even the latest Digital Screen Protection lenses.<br>
+            Order Today & become a part of our family who saved big on eyewear.</p>
     </div>
-    
+
+    <div class="container-1">
+        <div class="left">
+            <img src="https://www.eyeglasses.pk/media/wysiwyg/Shop-Glasses-Starting-From-976.gif" alt="Glasses">
+            <button>shop now</button>
+        </div>
+
+        <div class="right">
+            <img src="https://www.eyeglasses.pk/media/wysiwyg/Blue-Cut.jpg" alt="Blue Cut Glasses">
+            <button>shop now</button>
+        </div>
+    </div>
+
+    <h2>Real reviews from real customers</h2>
+    <div class="container">
+        <div class="reviews" id="reviewSlider">
+            <div class="review">
+                <p class="stars">★★★★★</p>
+                <strong>Best quality</strong>
+                <p>Amazing comfort and high-quality glasses.</p>
+            </div>
+            <div class="review">
+                <p class="stars">★★★★☆</p>
+                <strong>Worth the price</strong>
+                <p>Good service and nice product.</p>
+            </div>
+            <div class="review">
+                <p class="stars">★★★★★</p>
+                <strong>Highly recommended</strong>
+                <p>Great experience, will buy again!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="subscribe">
+            <input type="email" placeholder="Enter your email address">
+            <button>Subscribe</button>
+        </div>
+
+        <div class="footer-content">
+            <div>
+                <h3 onclick="toggleMenu(this)">EYEGLASSES</h3>
+                <ul>
+                    <li>Cheap Eyeglasses</li>
+                    <li>Women</li>
+                    <li>Men</li>
+                    <li>Children</li>
+                    <li>Designer Glasses</li>
+                    <li>Sunglasses</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 onclick="toggleMenu(this)">LENSES & COATING</h3>
+                <ul>
+                    <li>Progressive & Varifocal</li>
+                    <li>Blue Cut Lenses</li>
+                    <li>Photochromic Lenses</li>
+                    <li>Sunglasses Tints</li>
+                    <li>Polarized Lenses</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 onclick="toggleMenu(this)">OUR COMPANY</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Order Guide</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 onclick="toggleMenu(this)">MY ACCOUNT</h3>
+                <ul>
+                    <li>My Account</li>
+                    <li>My Orders</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                ✅ 100,000+ Reviews | ✅ 5 Million Customers | ✅ 16 Years in Business | ✅ 24/7 Customer Service
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let index = 0;
+        function showSlide() {
+            const slider = document.getElementById('reviewSlider');
+            slider.style.transform = `translateX(${-index * 33.33}%)`;
+        }
+        function nextSlide() {
+            index = (index + 1) % 3;
+            showSlide();
+        }
+        function prevSlide() {
+            index = (index - 1 + 3) % 3;
+            showSlide();
+        }
+        setInterval(nextSlide, 3000);
+
+        function toggleMenu(element) {
+            let menu = element.nextElementSibling;
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 
