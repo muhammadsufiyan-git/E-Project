@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Card Slider</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .swiper-container {
+            width: 80%;
+            margin: auto;
+        }
+        .swiper-slide {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-button" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo">
+            <img src="img.png" alt="Logo">
+        </div>
+        <div class="icons">
+            <div class="search-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mzeKiQL5ZUdLgk-eAcm0azd9JZ28E27X0w&s"
+                    alt="Search" class="search-icon" onclick="toggleSearch()">
+
+                <div class="search-bar" id="searchBar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div> <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
+                    style="cursor: pointer;">
+            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">✖</button>
+        <div class="menu-title">Menu</div>
+        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="#" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="#" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="#" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#" class="menu-item">BLOGS <span>&#8250;</span></a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="card">
+                    <img src="https://www.realmenrealstyle.com/wp-content/uploads/2023/06/Vanity-Glasses.jpg" alt="Card 1">
+                    <h3>Product Management</h3>
+                    <p>View 5 templates →</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoPVy9GwDvKFyxhDp4y7X56tA_YyA_5ai5A&s" alt="Card 2">
+                    <h3>Strategic Planning</h3>
+                    <p>View 5 templates →</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YDzph2J80gZhfpgUSwL0-5IW5kmb4HYO3Ft5QSL4UjmH4CH8Ia-r0qW5UXZryHzIiME&usqp=CAU" alt="Card 3">
+                    <h3>Project Management</h3>
+                    <p>View 5 templates →</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h5>Customer Care</h5>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Address Store</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Receivers & Amplifiers</a></li>
+                        <li><a href="#">Store Locations</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li><a href="#">Women's Eyeglasses</a></li>
+                        <li><a href="#">Men's Eyeglasses</a></li>
+                        <li><a href="#">Ray-Ban Eyeglasses</a></li>
+                        <li><a href="#">Multifocal's</a></li>
+                        <li><a href="#">Designer Eyeglasses</a></li>
+                    </ul>
+                </div>
+
+                
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <img src="https://klasie-store-demo.myshopify.com/cdn/shop/files/logo.png?v=1704364455"
+                        alt="Klasie Logo" style="height: 40px;">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Old_Visa_Logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+                <p>© Copyright 2024 | <strong>KlasieStore</strong> by ThemeOcean. Powered by Shopify.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                480: { slidesPerView: 1 }
+            }
+        });
+    </script>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function toggleSearch() {
+        var searchBar = document.getElementById("searchBar");
+        if (searchBar.style.display === "none" || searchBar.style.display === "") {
+            searchBar.style.display = "block";
+        } else {
+            searchBar.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
