@@ -42,10 +42,10 @@
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
         <div class="menu-title">Menu</div>
         <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
-        <a href="#" class="menu-item">SHOP <span>&#8250;</span></a>
-        <a href="#" class="menu-item">FEATURED <span>&#8250;</span></a>
-        <a href="#" class="menu-item">PAGES <span>&#8250;</span></a>
-        <a href="#" class="menu-item">BLOGS <span>&#8250;</span></a>
+        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
@@ -95,12 +95,12 @@
         <div class="filter-buttons">
             <a href="slider.html"><button class="filter-button active">New Arrivals</button></a>
             <button class="filter-button">Best Sellers</button>
-            <button class="filter-button">Top Rates</button>
+            <a href="top.html"><button class="filter-button active">Top Rates</button></a>
         </div>
     </div>
 
     <div class="container mt-5">
-        <div class="row">
+        <div id="card" class="row">
             <div class="col-6 col-md-3 product-card">
                 <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117"
                     alt="Oval Flat Lens Sunglasses">
@@ -132,25 +132,25 @@
                         <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
                             alt="Octagonal Flat Lens Sunglasses">
                         <h6>Octagonal Flat Lens Sunglasses</h6>
-                        <p><span class="old-price">$130.00</span> <span class="price">$95.00</span></p>
+                        <p class="price" onclick="window.location.href='card_5.html'">$32.00</p>
                     </div>
                     <div class="col-6 col-md-3 product-card">
                         <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061"
                             alt="Clubround Round Sunglasses">
                         <h6>Clubround Round Sunglasses</h6>
-                        <p class="price">$240.00</p>
+                        <p class="price" onclick="window.location.href='card_6.html'">$42.00</p>
                     </div>
                     <div class="col-6 col-md-3 product-card">
                         <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product40.jpg?v=1704550079"
                             alt="Prescription Eyeglass Frames">
                         <h6>Prescription Eyeglass Frames</h6>
-                        <p class="price">$55.00</p>
+                        <p class="price" onclick="window.location.href='card_7.html'">$22.00</p>
                     </div>
                     <div class="col-6 col-md-3 product-card">
                         <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product25.jpg?v=1704550053"
                             alt="Double Round Sunglasses">
                         <h6>Double Round Sunglasses</h6>
-                        <p class="price">$325.00</p>
+                        <p class="price" onclick="window.location.href='card_8.html'">$21.00</p>
                     </div>
                     <div class="container mt-5">
                         <div class="row justify-content-center">
@@ -158,25 +158,25 @@
                                 <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product59.jpg?v=1704550114"
                                     alt="Hexagonal Sunglasses">
                                 <h6>Hexagonal Sunglasses</h6>
-                                <p class="price">$176.00</p>
+                                <p class="price" onclick="window.location.href='card_9.html'">$12.00</p>
                             </div>
                             <div class="col-6 col-md-3 product-card">
                                 <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
                                     alt="Liteforce Square Sunglasses">
                                 <h6>Liteforce Square Sunglasses</h6>
-                                <p><span class="old-price">$158.00</span> <span class="price">$69.00</span></p>
+                                <p class="price" onclick="window.location.href='card_10.html'">$80.00</p>
                             </div>
                             <div class="col-6 col-md-3 product-card">
                                 <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029"
                                     alt="Gradient Aviator Sunglasses">
                                 <h6>Gradient Aviator Sunglasses</h6>
-                                <p class="price">$212.00</p>
+                                <p class="price" onclick="window.location.href='card_11.html'">$211.00</p>
                             </div>
                             <div class="col-6 col-md-3 product-card">
                                 <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
                                     alt="Aviator Sunglasses">
                                 <h6>Aviator Sunglasses</h6>
-                                <p class="price">$160.00</p>
+                                <p class="price" onclick="window.location.href='card_12.html'">$312.00</p>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
     </div>
 
     <div class="container mt-5">
-        <div class="row">
+        <div id="pages" class="row">
             <div class="col-md-6">
                 <h3 class="section-title">TESTIMONIALS</h3>
                 <div class="testimonial-box">
@@ -224,7 +224,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="row">
 
@@ -296,14 +296,7 @@
             document.getElementById('overlay').classList.toggle('active');
         }
 
-        function toggleSearch() {
-            var searchBar = document.getElementById("searchBar");
-            if (searchBar.style.display === "none" || searchBar.style.display === "") {
-                searchBar.style.display = "block";
-            } else {
-                searchBar.style.display = "none";
-            }
-        }
+      
     </script>
 
 </body>
