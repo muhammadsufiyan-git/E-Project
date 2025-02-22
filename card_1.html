@@ -16,7 +16,7 @@
             <div class="bar"></div>
         </div>
         <div class="logo">
-            <img src="img.png" alt="Logo">
+            <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
         </div>
         <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User">
@@ -27,11 +27,11 @@
 
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <a href="#" class="menu-item">HOME</a>
-        <a href="#" class="menu-item">SHOP</a>
-        <a href="#" class="menu-item">FEATURED</a>
-        <a href="#" class="menu-item">PAGES</a>
-        <a href="#" class="menu-item">BLOGS</a>
+        <a href="index.html" class="menu-item">HOME</a>
+        <a href="#card" class="menu-item">SHOP</a>
+        <a href="slider.html" class="menu-item">FEATURED</a>
+        <a href="#pages" class="menu-item">PAGES</a>
+        <a href="#footer" class="menu-item">BLOGS</a>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
@@ -55,6 +55,14 @@
     <footer class="footer">
         <p>© 2024 | ELITESPEX by ThemeOcean. Powered by E-Project.</p>
     </footer>
+
+    <script>
+         function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+    </script>
 
 </body>
 </html>
