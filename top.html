@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Rated Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .swiper-container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        .swiper-wrapper {
+            display: flex;
+        }
+        .swiper-slide {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+        .swiper-slide img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-button" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo">
+            <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
+        </div>
+        <div class="icons">
+            <div class="search-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mzeKiQL5ZUdLgk-eAcm0azd9JZ28E27X0w&s"
+                    alt="Search" class="search-icon" onclick="toggleSearch()">
+
+                <div class="search-bar" id="searchBar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div> <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
+                    style="cursor: pointer;">
+            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">✖</button>
+        <div class="menu-title">Menu</div>
+        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <br><br>
+    <h2>Top Rated Products</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" onclick="openProductPage('card_1.html')">
+                <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117" alt="Product 1">
+                <h3>Oval Flat Lens Sunglasses</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="swiper-slide" onclick="openProductPage('card_4.html')">
+                <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075" alt="Product 2">
+                <h3>Octagonal Flat Lens Sunglasses</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="swiper-slide" onclick="openProductPage('card_5.html')">
+                <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061" alt="Product 3">
+                <h3>Clubround Round Sunglasses</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="swiper-slide" onclick="openProductPage('card_11.html')">
+                <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029" alt="Product 4">
+                <h3>Gradient Aviator Sunglasses</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div class="footer">
+        <p>&copy; 2025 Your Website. All Rights Reserved.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        function openProductPage(url) {
+            window.location.href = url;
+        }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                480: {
+                    slidesPerView: 1,
+                }
+            }
+        });
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="menu-button" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo">
+            <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
+        </div>
+        <div class="icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">✖</button>
+        <a href="index.html" class="menu-item">HOME</a>
+        <a href="#card" class="menu-item">SHOP</a>
+        <a href="slider.html" class="menu-item">FEATURED</a>
+        <a href="#pages" class="menu-item">PAGES</a>
+        <a href="#footer" class="menu-item">BLOGS</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1 class="product-title"></h1>
+            <p class="price"><del></del></p>
+            <p class="stock-status"></p>
+            <p class="product-description"></p>
+            <div class="buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 | ELITESPEX by ThemeOcean. Powered by E-Project.</p>
+    </footer>
+
+    <script>
+         function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+    </script>
+
+</body>
+</html>
