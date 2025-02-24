@@ -14,10 +14,90 @@
             background-color: #f4f4f4;
             text-align: center;
         }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header .menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 21px;
+            cursor: pointer;
+        }
+        .header .menu-button .bar {
+            width: 100%;
+            height: 4px;
+            background-color: #333;
+            border-radius: 2px;
+        }
+        .header .logo img {
+            width: 100px;
+        }
+        .header .icons img {
+            width: 35px;
+            height: 35px;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; 
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar .menu-title {
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .sidebar .menu-item {
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #444;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        /* Swiper */
         .swiper-container {
             width: 90%;
             margin: auto;
             padding: 20px;
+            margin-top: 80px; 
         }
         .swiper-wrapper {
             display: flex;
@@ -40,15 +120,63 @@
             object-fit: cover;
             border-radius: 10px;
         }
+
         .footer {
             background: #333;
             color: white;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 200px;
+        }
+
+        @media (max-width: 1024px) {
+            .swiper-container {
+                width: 80%;
+            }
+            .header .logo img {
+                width: 80px;
+            }
+            .header .icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .swiper-container {
+                width: 95%;
+            }
+            .swiper-slide {
+                min-width: 250px;
+            }
+            .header .logo img {
+                width: 90px;
+            }
+            .header .icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .swiper-container {
+                width: 100%;
+            }
+            .swiper-slide {
+                min-width: 200px;
+                padding: 10px;
+            }
+            .header .logo img {
+                width: 70px;
+            }
+            .header .icons img {
+                width: 25px;
+                height: 25px;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="header">
         <div class="menu-button" onclick="toggleSidebar()">
             <div class="bar"></div>
@@ -58,17 +186,16 @@
         <div class="logo">
             <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
         </div>
-        <div class="icons">
-            <div class="search-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mzeKiQL5ZUdLgk-eAcm0azd9JZ28E27X0w&s"
-                    alt="Search" class="search-icon" onclick="toggleSearch()">
-
-                <div class="search-bar" id="searchBar">
-                    <input type="text" class="search-input" placeholder="Search...">
-                </div>
-            </div> <a href="one.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
-                    style="cursor: pointer;">
+        <div class="search-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mzeKiQL5ZUdLgk-eAcm0azd9JZ28E27X0w&s" alt="Search" class="search-icon" onclick="toggleSearch()">
+            <div class="search-bar" id="searchBar">
+                <input type="text" class="search-input" placeholder="Search...">
+                <span class="close-btn" onclick="toggleSearch()">X</span>
+            </div>
+        </div>
+        
+            <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40" style="cursor: pointer;">
             </a>
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
@@ -78,16 +205,17 @@
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
         <div class="menu-title">Menu</div>
-        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
-        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="#" class="menu-item">SHOP <span>&#8250;</span></a>
         <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
-        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
-        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
+        <a href="#" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#" class="menu-item">BLOGS <span>&#8250;</span></a>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-    <br><br>
+
     <h2>Top Rated Products</h2>
+
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" onclick="openProductPage('card_1.html')">
@@ -112,15 +240,17 @@
             </div>
         </div>
     </div>
-    <br><br><br><br>
+
     <div class="footer">
         <p>&copy; 2025 Your Website. All Rights Reserved.</p>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
         function openProductPage(url) {
             window.location.href = url;
         }
+
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
             spaceBetween: 20,
