@@ -113,11 +113,11 @@ body {
 }
 
 .logo img {
-    height: 80px; 
+    height: 80px;
     width: auto;
     max-height: 100%;
-    background: none; 
-    mix-blend-mode: multiply; 
+    background: none;
+    mix-blend-mode: multiply;
 }
 
 
@@ -629,4 +629,68 @@ body {
     color: #e74c3c;
     font-weight: bold;
     cursor: pointer;
+}
+
+.old-price {
+    color: #888;
+    font-size: 1rem;
+}
+
+.old-price del {
+    text-decoration: line-through;
+    color: #ff0000;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-bar {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: 800px;
+    max-width: 90%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
 }
