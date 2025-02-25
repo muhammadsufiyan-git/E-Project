@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            margin: auto;
+            margin-top: 30px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            background: black;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .price:active {
+            background: red;
+            color: yellow;
+        }
+
+        .stars {
+            color: gold;
+            margin-top: 5px;
+        }
+
+        .product-card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-card button:active {
+            background-color: #007bff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        .overlay {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .products {
+                flex-direction: column;
+            }
+
+            .product-card {
+                width: 90%;
+            }
+
+            .sidebar {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100%;
+                background-color: white;
+                color: #fff;
+                padding: 20px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .overlay.active {
+                display: block;
+            }
+
+            .header,
+            footer {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu-button" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo">
+            <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
+        </div>
+        <div class="icons">
+            <div class="search-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
+                    alt="Search" class="search-icon" onclick="toggleSearch()">
+                <div class="search-bar" id="searchBar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
+                    style="cursor: pointer;">
+            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">✖</button>
+        <div class="menu-title">Menu</div>
+        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="container">
+        <h2>Best Sellers</h2>
+        <div class="products" id="productList"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Best Sellers. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        const products = [
+            { name: "AO (American Optical)", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNatnk6Vkq1d1m2SEBMSozCWDK9TRErkGeHKcVhG1Lkh_o8VkG9IKIdRo5kxZOPxYNCt4&usqp=CAU", rating: "★★★★★" },
+            { name: "Porsche Design", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQehLzYP4XbE5o1V4-Lm_EsqjUgtcOxxjYifvqjJprj54ihEAXD8N8JYGK6aotYiTwHrAc&usqp=CAU", rating: "★★★★☆" },
+            { name: "Tommy Hilfiger", price: "Rs. 3100.00", img: "https://opticalmart.pk/cdn/shop/collections/louis-vuitton-1-1-millionaires-sunglasses-s00-sunglasses--Z1165W_PM1_Worn_view.webp?v=1698147808", rating: "★★★★★" },
+            { name: "Prada", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK6QSdfLkAjIaHNM6IrqeIYKxBBq8gfUD7D7_BkfW1PpDDbMWRY4W8WXUeHJUsMnhg0Fk&usqp=CAU", rating: "★★★★☆" }
+        ];
+
+        function loadProducts() {
+            const productList = document.getElementById("productList");
+            products.forEach(product => {
+                const card = document.createElement("div");
+                card.classList.add("product-card");
+                card.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p class="price" onclick="changePriceColor(this)">${product.price}</p>
+                    <p class="stars">${product.rating}</p>
+                    <button onclick="productClicked('${product.name}')">View Details</button>
+                `;
+                productList.appendChild(card);
+            });
+        }
+
+        function changePriceColor(element) {
+            element.style.background = element.style.background === "red" ? "black" : "red";
+            element.style.color = element.style.color === "yellow" ? "white" : "yellow";
+        }
+
+        function productClicked(productName) {
+            alert(`You clicked on: ${productName}`);
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        window.onload = loadProducts;
+    </script>
+</body>
+
+</html>
