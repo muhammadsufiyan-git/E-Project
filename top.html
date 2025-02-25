@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Base Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -91,12 +92,14 @@
 
         .content {
             flex: 1;
-            padding-top: 100px;
+            padding-top: 120px;
             padding-bottom: 50px;
+            transition: margin-left 0.3s ease;
+            margin-left: 0;
         }
 
         .swiper-container {
-            width: 90%;
+            width: 100%;
             margin: auto;
             padding: 20px;
         }
@@ -109,12 +112,14 @@
             text-align: center;
             transition: transform 0.2s;
             text-decoration: none;
+            height: 350px;
         }
 
         .swiper-slide a {
             text-decoration: none;
             color: inherit;
             display: block;
+            height: 100%;
         }
 
         .swiper-slide:hover {
@@ -138,30 +143,15 @@
             bottom: 0;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .swiper-container {
-                width: 85%;
+        /* Mobile (Smartphone) */
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: row;
+                padding: 8px;
             }
 
             .logo img {
-                width: 70px;
-            }
-
-            .icons img {
-                width: 28px;
-                height: 28px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .swiper-container {
-                width: 95%;
-            }
-
-            .icons img {
-                width: 25px;
-                height: 25px;
+                width: 60px;
             }
 
             .menu-button {
@@ -169,14 +159,14 @@
                 height: 18px;
             }
 
-            .header {
-                padding: 8px 15px;
+            .icons img {
+                width: 22px;
+                height: 22px;
             }
-        }
 
-        @media (max-width: 480px) {
             .swiper-container {
                 width: 100%;
+                padding: 10px;
             }
 
             .swiper-slide {
@@ -184,23 +174,76 @@
                 padding: 10px;
             }
 
-            .icons img {
-                width: 22px;
-                height: 22px;
+            .sidebar {
+                width: 200px;
             }
 
+            .content {
+                margin-left: 0;
+            }
+
+            .footer {
+                font-size: 14px;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
             .header {
-                flex-direction: row;
-                padding: 8px;
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                width: 70px;
             }
 
             .menu-button {
-                width: 20px;
-                height: 15px;
+                width: 28px;
+                height: 19px;
+            }
+
+            .icons img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .swiper-container {
+                width: 90%;
+            }
+
+            .swiper-slide {
+                min-width: 250px;
             }
 
             .sidebar {
-                width: 200px;
+                width: 220px;
+            }
+
+            .content {
+                margin-left: 220px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .swiper-container {
+                width: 85%;
+            }
+
+            .swiper-slide {
+                min-width: 300px;
+            }
+
+            .sidebar {
+                width: 250px;
+            }
+
+            .content {
+                margin-left: 250px;
+            }
+
+            .footer {
+                font-size: 16px;
             }
         }
     </style>
@@ -218,8 +261,7 @@
             <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
         </div>
         <div class="icons">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
-                alt="User">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s" alt="User">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist">
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
         </div>
@@ -241,32 +283,28 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <a href="card_1.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117"
-                            alt="Product 1">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117" alt="Product 1">
                         <h3>Design Glasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="card_6.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061"
-                            alt="Product 2">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061" alt="Product 2">
                         <h3>Clubround Round Sunglasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="card_11.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029"
-                            alt="Product 2">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029" alt="Product 2">
                         <h3>Gradient Aviator Sunglasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="card_5.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
-                            alt="Product 2">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075" alt="Product 2">
                         <h3>Octagonal Flat Lens Sunglasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
