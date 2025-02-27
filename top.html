@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: white;
         }
 
         .menu-button {
@@ -87,21 +87,30 @@
             padding: 15px;
             color: white;
             text-decoration: none;
-            border-bottom: 1px solid #444;
+            border-bottom: white;
         }
 
         .content {
             flex: 1;
             padding-top: 120px;
             padding-bottom: 50px;
-            transition: margin-left 0.3s ease;
-            margin-left: 0;
         }
 
         .swiper-container {
-            width: 100%;
+            width: 90%;
             margin: auto;
             padding: 20px;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .swiper-slide {
@@ -113,13 +122,20 @@
             transition: transform 0.2s;
             text-decoration: none;
             height: 350px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
+
 
         .swiper-slide a {
             text-decoration: none;
             color: inherit;
             display: block;
             height: 100%;
+            width: 100%;
         }
 
         .swiper-slide:hover {
@@ -146,7 +162,6 @@
         /* Mobile (Smartphone) */
         @media (max-width: 480px) {
             .header {
-                flex-direction: row;
                 padding: 8px;
             }
 
@@ -178,72 +193,8 @@
                 width: 200px;
             }
 
-            .content {
-                margin-left: 0;
-            }
-
             .footer {
                 font-size: 14px;
-            }
-        }
-
-        /* Tablet */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 15px;
-            }
-
-            .logo img {
-                width: 70px;
-            }
-
-            .menu-button {
-                width: 28px;
-                height: 19px;
-            }
-
-            .icons img {
-                width: 25px;
-                height: 25px;
-            }
-
-            .swiper-container {
-                width: 90%;
-            }
-
-            .swiper-slide {
-                min-width: 250px;
-            }
-
-            .sidebar {
-                width: 220px;
-            }
-
-            .content {
-                margin-left: 220px;
-            }
-        }
-
-        /* Desktop */
-        @media (min-width: 1024px) {
-            .swiper-container {
-                width: 85%;
-            }
-
-            .swiper-slide {
-                min-width: 300px;
-            }
-
-            .sidebar {
-                width: 250px;
-            }
-
-            .content {
-                margin-left: 250px;
-            }
-
-            .footer {
-                font-size: 16px;
             }
         }
     </style>
@@ -261,7 +212,8 @@
             <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
         </div>
         <div class="icons">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s" alt="User">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
+                alt="User">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist">
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
         </div>
@@ -283,29 +235,33 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <a href="card_1.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117" alt="Product 1">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117"
+                            alt="Product 1">
                         <h3>Design Glasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="card_6.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061" alt="Product 2">
-                        <h3>Clubround Round Sunglasses</h3>
+                    <a href="card_2.html">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061"
+                            alt="Product 2">
+                        <h3>Clubround Sunglasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="card_11.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029" alt="Product 2">
+                    <a href="card_3.html">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029"
+                            alt="Product 3">
                         <h3>Gradient Aviator Sunglasses</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="card_5.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075" alt="Product 2">
-                        <h3>Octagonal Flat Lens Sunglasses</h3>
+                    <a href="card_4.html">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
+                            alt="Product 4">
+                        <h3>Octagonal Flat Lens</h3>
                         <p>⭐⭐⭐⭐⭐</p>
                     </a>
                 </div>
@@ -323,18 +279,6 @@
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');
         }
-
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: { delay: 2000, disableOnInteraction: false },
-            breakpoints: {
-                1024: { slidesPerView: 3 },
-                768: { slidesPerView: 2 },
-                480: { slidesPerView: 1 }
-            }
-        });
     </script>
 </body>
 
