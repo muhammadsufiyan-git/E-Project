@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <!-- header open -->
     <div class="header">
         <div class="menu-button" onclick="toggleSidebar()">
             <div class="bar"></div>
@@ -37,7 +37,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
         </div>
     </div>
-
+    <!-- navbar -->
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
         <div class="menu-title">Menu</div>
@@ -49,7 +49,9 @@
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
+    <!-- navbar close -->
+    <!-- header close -->
+    <!-- slider open -->
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"
         data-bs-pause="hover">
         <div class="carousel-inner">
@@ -88,7 +90,8 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-
+    <!-- slider close -->
+    <!-- collection buttons start -->
     <div class="special-collections">
         <h2>SPECIAL COLLECTIONS</h2>
         <div class="underline"></div>
@@ -98,7 +101,25 @@
             <a href="top.html"><button class="filter-button active">Top Rates</button></a>
         </div>
     </div>
+    <!-- collection buttons close -->
 
+    <!-- Video Section Start -->
+    <div class="container mt-5" id="video-section">
+        <h3 class="section-title">Watch Our Latest Video</h3>
+        <p class="video-description">Check out our latest video to learn more about glasses and eyewear.</p>
+    
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://youtu.be/p0m2OtYvIDk?si=vqjgAYMzTDbyxjCb" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    
+    <!-- Video Section End -->
+
+    <!-- cards start -->
     <div class="container mt-5">
         <div id="card" class="row">
             <div class="col-6 col-md-3 product-card">
@@ -206,7 +227,8 @@
             </div>
         </div>
     </div>
-
+    <!-- cards close -->
+    <!-- testimonals start -->
     <div class="container mt-5">
         <div id="pages" class="row">
             <div class="col-md-6">
@@ -243,7 +265,86 @@
             </div>
         </div>
     </div>
+    <!-- testimonals close -->
+    <!-- reviews start -->
+    <div class="container mt-5" id="reviews-section">
+        <h3 class="section-title">Customer Reviews</h3>
+        <div class="reviews-box">
+            <div class="reviews-wrapper">
+                <div class="review">
+                    <div class="review-author">
+                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/files/testimonial-img1.png?v=1704630681"
+                            alt="User">
+                        <div>
+                            <h6>John Doe</h6>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <p class="review-content">"Great quality sunglasses! Love the fit and style. Will definitely
+                        purchase again."</p>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
 
+                <div class="review">
+                    <div class="review-author">
+                        <img src="https://t4.ftcdn.net/jpg/02/14/74/61/360_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg"
+                            alt="User">
+                        <div>
+                            <h6>Jane Smith</h6>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <p class="review-content">"Amazing service and fast delivery. The sunglasses are perfect for my
+                        summer look!"</p>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-author">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qB43KRtCEPZFNRHTFEy_mEXw2Fvvq88jFw&s"
+                            alt="User">
+                        <div>
+                            <h6>Alex Brown</h6>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <p class="review-content">"Love the sunglasses! Perfect for sunny days. Will recommend to friends."
+                    </p>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review submission form -->
+        <div class="submit-review">
+            <h4>Submit Your Review</h4>
+            <form>
+                <textarea class="review-text" placeholder="Write your review here..." rows="4" required></textarea>
+                <div class="rating-submit">
+                    <label for="rating">Rating: </label>
+                    <select id="rating" required>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="1">⭐</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+    <!-- reviews close -->
+
+
+
+    <!-- footer start -->
     <footer id="footer" class="footer">
         <div class="container">
             <div class="row">
@@ -308,7 +409,7 @@
             </div>
         </div>
     </footer>
-
+    <!-- footer close -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
         function toggleSidebar() {
@@ -335,6 +436,28 @@
                 overlay.classList.remove('active');
             };
         }
+
+
+        let currentIndex = 0; // Start at the first review
+        const reviewsWrapper = document.querySelector('.reviews-wrapper');
+        const totalReviews = document.querySelectorAll('.review').length;
+
+        // Function to move the slider to the next review
+        function moveSlider() {
+            currentIndex = (currentIndex + 1) % totalReviews; // Move to the next review, loop back after the last one
+            updateSliderPosition();
+        }
+
+        // Function to update the position of the slider
+        function updateSliderPosition() {
+            const newTransformValue = -currentIndex * 100; // Slide to the next review
+            reviewsWrapper.style.transform = `translateX(${newTransformValue}%)`;
+        }
+
+        // Automatically move to the next review every 3 seconds
+        setInterval(moveSlider, 3000);
+
+        // Optionally, you can add manual control buttons (e.g., Next/Prev buttons)
 
     </script>
 
