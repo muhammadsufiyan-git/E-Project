@@ -3,119 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Non-Stop Scrolling Slider</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="card.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 80px;
-            background-color: #f4f4f4;
-        }
+        /* Center Swiper Slides */
+.swiper-container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .header {
-            margin-bottom: 200px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #fff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+/* Ensure Cards Are in Center */
+.swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Increased gap between slides */
+}
 
-        .swiper-container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
+/* Larger and Centered Cards */
+.swiper-slide {
+    background: white;
+    padding: 25px; /* Increased padding */
+    border-radius: 15px; /* More rounded edges */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    text-align: center;
+    min-width: 350px; /* Increased width */
+    max-width: 400px;
+    height: 420px; /* Increased height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        .swiper-wrapper {
-            display: flex;
-            transition-timing-function: linear !important;
-        }
+/* Center Content Inside Cards */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .swiper-slide {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            min-width: 300px;
-        }
+/* Bigger Images */
+.card img {
+    width: 250px; /* Increased image size */
+    height: 250px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* Adjust Text Size */
+.card h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        .card img {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
+.card p {
+    font-size: 16px;
+    color: #666;
+}
 
-        footer {
-            margin-top: 0px;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-        }
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .swiper-container {
+        width: 100%;
+    }
 
-        @media (max-width: 768px) {
-            .swiper-container {
-                width: 90%;
-            }
+    .swiper-slide {
+        min-width: 280px;
+        height: 380px;
+        padding: 20px;
+    }
 
-            .swiper-slide {
-                min-width: 250px;
-                padding: 10px;
-            }
+    .card img {
+        width: 200px;
+        height: 200px;
+    }
+}
 
-            .card img {
-                width: 150px;
-                height: 150px;
-            }
+@media (max-width: 480px) {
+    .swiper-slide {
+        min-width: 230px;
+        height: 350px;
+        padding: 15px;
+    }
 
-            .header .icons img {
-                width: 35px;
-                height: 35px;
-            }
-        }
+    .card img {
+        width: 180px;
+        height: 180px;
+    }
 
-        @media (max-width: 480px) {
-            .swiper-container {
-                width: 100%;
-            }
+    .card h3 {
+        font-size: 18px;
+    }
 
-            .swiper-slide {
-                min-width: 200px;
-                padding: 5px;
-            }
+    .card p {
+        font-size: 14px;
+    }
+}
 
-            .card img {
-                width: 130px;
-                height: 130px;
-            }
-
-            .header .icons img {
-                width: 30px;
-                height: 30px;
-            }
-        }
     </style>
 </head>
-
 <body>
-
     <div class="header">
         <div class="menu-button" onclick="toggleSidebar()">
             <div class="bar"></div>
@@ -186,7 +181,7 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
 
     <footer class="footer">
         <p>© 2024 | ELITESPEX by ThemeOcean. Powered by E-Project.</p>
@@ -221,7 +216,5 @@
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
-
 </body>
-
 </html>
