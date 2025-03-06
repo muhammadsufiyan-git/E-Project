@@ -214,10 +214,10 @@
 
     <script>
         const products = [
-            { name: "Design Glasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117", rating: "★★★★★" },
-            { name: "Clubround Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061", rating: "★★★★★" },
-            { name: "Gradient Aviator Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029", rating: "★★★★★" },
-            { name: "Octagonal Flat Lens", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075", rating: "★★★★★" },
+            { name: "Design Glasses", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNatnk6Vkq1d1m2SEBMSozCWDK9TRErkGeHKcVhG1Lkh_o8VkG9IKIdRo5kxZOPxYNCt4&usqp=CAU", rating: "★★★★★" },
+            { name: "Porsche Design", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQehLzYP4XbE5o1V4-Lm_EsqjUgtcOxxjYifvqjJprj54ihEAXD8N8JYGK6aotYiTwHrAc&usqp=CAU", rating: "★★★★☆" },
+            { name: "Tommy Hilfiger", price: "Rs. 3100.00", img: "https://opticalmart.pk/cdn/shop/collections/louis-vuitton-1-1-millionaires-sunglasses-s00-sunglasses--Z1165W_PM1_Worn_view.webp?v=1698147808", rating: "★★★★★" },
+            { name: "Prada", price: "Rs. 3100.00", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK6QSdfLkAjIaHNM6IrqeIYKxBBq8gfUD7D7_BkfW1PpDDbMWRY4W8WXUeHJUsMnhg0Fk&usqp=CAU", rating: "★★★★☆" }
         ];
 
 
@@ -229,6 +229,7 @@
                 card.innerHTML = `
                     <img src="${product.img}" alt="${product.name}">
                     <h4>${product.name}</h4>
+                    <p class="price" onclick="changePriceColor(this)">${product.price}</p>
                     <p class="stars">${product.rating}</p>
                     <button onclick="productClicked('${product.name}')">View Details</button>
                 `;
