@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated Products</title>
+    <title>TOP RATED PRODUCTS</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -131,6 +131,16 @@
                 text-align: center;
             }
         }
+
+        .product-link {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        .product-link:hover {
+            color: #007bff;
+        }
     </style>
 </head>
 
@@ -184,12 +194,31 @@
 
     <script>
         const products = [
-            { name: "Design Glasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117", rating: "★★★★★" },
-            { name: "Clubround Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061", rating: "★★★★★" },
-            { name: "Gradient Aviator Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029", rating: "★★★★★" },
-            { name: "Octagonal Flat Lens", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075", rating: "★★★★★" },
+            {
+                name: "Design Glasses",
+                img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117",
+                rating: "★★★★★",
+                link: "card_1.html"
+            },
+            {
+                name: "Clubround Sunglasses",
+                img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061",
+                rating: "★★★★★",
+                link: "card_6.html"
+            },
+            {
+                name: "Gradient Aviator Sunglasses",
+                img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029",
+                rating: "★★★★★",
+                link: "card_11.html"
+            },
+            {
+                name: "Octagonal Flat Lens",
+                img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075",
+                rating: "★★★★★",
+                link: "card_5.html"
+            }
         ];
-
 
         function loadProducts() {
             const productList = document.getElementById("productList");
@@ -197,25 +226,20 @@
                 const card = document.createElement("div");
                 card.classList.add("product-card");
                 card.innerHTML = `
-                    <img src="${product.img}" alt="${product.name}">
-                    <h4>${product.name}</h4>
-                    <p class="stars">${product.rating}</p>
-                    <button onclick="productClicked('${product.name}')">View Details</button>
-                `;
+            <img src="${product.img}" alt="${product.name}">
+            <h4>${product.name}</h4>
+            <p class="stars">${product.rating}</p>
+            <a href="${product.link}">
+                <button>View Details</button>
+            </a>
+        `;
                 productList.appendChild(card);
             });
         }
 
-        function changePriceColor(element) {
-            element.style.background = element.style.background === "red" ? "black" : "red";
-            element.style.color = element.style.color === "yellow" ? "white" : "yellow";
-        }
-
-        function productClicked(productName) {
-            alert(`You clicked on: ${productName}`);
-        }
-
         window.onload = loadProducts;
+
+
     </script>
     <script src="cards.js"></script>
 </body>
