@@ -4,204 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated Products</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <title>Best Sellers</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Base Styles */
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            background-color: white;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            margin: 0;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: white;
-        }
-
-        .menu-button {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-        }
-
-        .menu-button .bar {
-            width: 100%;
-            height: 4px;
-            background-color: #333;
-            border-radius: 2px;
-        }
-
-        .logo img {
-            width: 80px;
-        }
-
-        .icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .icons img {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            transition: left 0.3s ease;
-            z-index: 999;
-            padding-top: 60px;
-        }
-
-        .sidebar.open {
-            left: 0;
-        }
-
-        .menu-item {
-            display: block;
-            padding: 15px;
-            color: white;
-            text-decoration: none;
-            border-bottom: white;
-        }
-
-        .content {
-            flex: 1;
-            padding-top: 120px;
-            padding-bottom: 50px;
-        }
-
-        .swiper-container {
+        .container {
+            background: white;
             width: 90%;
             margin: auto;
-            padding: 20px;
+            margin-top: 30px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .swiper-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        .swiper-wrapper {
+        .products {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .swiper-slide {
-            background: white;
-            padding: 15px;
+        .product-card {
+            background: #f8f8f8;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            width: 220px;
             text-align: center;
-            transition: transform 0.2s;
-            text-decoration: none;
-            height: 350px;
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 20px;
         }
 
-
-        .swiper-slide a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            height: 100%;
-            width: 100%;
-        }
-
-        .swiper-slide:hover {
+        .product-card:hover {
             transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .swiper-slide img {
+        .product-card img {
             width: 100%;
-            max-height: 200px;
-            object-fit: cover;
+            height: auto;
             border-radius: 10px;
         }
 
-        .footer {
-            background: #333;
+        .price {
+            font-weight: bold;
+            background: black;
             color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .price:active {
+            background: red;
+            color: yellow;
+        }
+
+        .stars {
+            color: gold;
+            margin-top: 5px;
+        }
+
+        .product-card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-card button:active {
+            background-color: #007bff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
             padding: 20px;
             text-align: center;
-            width: 100%;
-            position: relative;
-            bottom: 0;
+            margin-top: 40px;
         }
 
-        /* Mobile (Smartphone) */
-        @media (max-width: 480px) {
-            .header {
-                padding: 8px;
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        .overlay {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .products {
+                flex-direction: column;
             }
 
-            .logo img {
-                width: 60px;
-            }
-
-            .menu-button {
-                width: 25px;
-                height: 18px;
-            }
-
-            .icons img {
-                width: 22px;
-                height: 22px;
-            }
-
-            .swiper-container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .swiper-slide {
-                min-width: 200px;
-                padding: 10px;
+            .product-card {
+                width: 90%;
             }
 
             .sidebar {
-                width: 200px;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100%;
+                background-color: white;
+                color: #fff;
+                padding: 20px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
 
-            .footer {
-                font-size: 14px;
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .overlay.active {
+                display: block;
+            }
+
+            .header,
+            footer {
+                text-align: center;
             }
         }
     </style>
 </head>
 
 <body>
-
     <div class="header">
         <div class="menu-button" onclick="toggleSidebar()">
             <div class="bar"></div>
@@ -212,73 +171,88 @@
             <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
         </div>
         <div class="icons">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
-                alt="User">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist">
+            <div class="search-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
+                    alt="Search" class="search-icon" onclick="toggleSearch()">
+                <div class="search-bar" id="searchBar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
+                    style="cursor: pointer;">
+            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
         </div>
     </div>
 
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <a href="index.html" class="menu-item">HOME</a>
-        <a href="#" class="menu-item">SHOP</a>
-        <a href="slider.html" class="menu-item">FEATURED</a>
-        <a href="#" class="menu-item">PAGES</a>
-        <a href="#" class="menu-item">BLOGS</a>
+        <div class="menu-title">Menu</div>
+        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
     </div>
 
-    <div class="content">
-        <h2>Top Rated Products</h2>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a href="card_1.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117"
-                            alt="Product 1">
-                        <h3>Design Glasses</h3>
-                        <p>⭐⭐⭐⭐⭐</p>
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="card_2.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061"
-                            alt="Product 2">
-                        <h3>Clubround Sunglasses</h3>
-                        <p>⭐⭐⭐⭐⭐</p>
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="card_3.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029"
-                            alt="Product 3">
-                        <h3>Gradient Aviator Sunglasses</h3>
-                        <p>⭐⭐⭐⭐⭐</p>
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="card_4.html">
-                        <img src="https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075"
-                            alt="Product 4">
-                        <h3>Octagonal Flat Lens</h3>
-                        <p>⭐⭐⭐⭐⭐</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
+    <div class="container">
+        <h2>Best Sellers</h2>
+        <div class="products" id="productList"></div>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2025 Your Website. All Rights Reserved.</p>
-    </div>
+    <footer>
+        <p>&copy; 2025 Best Sellers. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
+        const products = [
+            { name: "Design Glasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product60.jpg?v=1704550117", rating: "★★★★★" },
+            { name: "Clubround Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product31.jpg?v=1704550061", rating: "★★★★★" },
+            { name: "Gradient Aviator Sunglasses", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product13.jpg?v=1704550029", rating: "★★★★★" },
+            { name: "Octagonal Flat Lens", img: "https://klasie-store-demo.myshopify.com/cdn/shop/products/product39.jpg?v=1704550075", rating: "★★★★★" },
+        ];
+
+
+        function loadProducts() {
+            const productList = document.getElementById("productList");
+            products.forEach(product => {
+                const card = document.createElement("div");
+                card.classList.add("product-card");
+                card.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p class="stars">${product.rating}</p>
+                    <button onclick="productClicked('${product.name}')">View Details</button>
+                `;
+                productList.appendChild(card);
+            });
         }
+
+        function changePriceColor(element) {
+            element.style.background = element.style.background === "red" ? "black" : "red";
+            element.style.color = element.style.color === "yellow" ? "white" : "yellow";
+        }
+
+        function productClicked(productName) {
+            alert(`You clicked on: ${productName}`);
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        window.onload = loadProducts;
     </script>
 </body>
 
