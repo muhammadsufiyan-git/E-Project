@@ -113,10 +113,6 @@
             text-decoration: underline;
         }
 
-        .sidebar {
-            display: none;
-        }
-
         .overlay {
             display: none;
         }
@@ -128,28 +124,6 @@
 
             .product-card {
                 width: 90%;
-            }
-
-            .sidebar {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 250px;
-                height: 100%;
-                background-color: white;
-                color: #fff;
-                padding: 20px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            .sidebar.active {
-                transform: translateX(0);
-            }
-
-            .overlay.active {
-                display: block;
             }
 
             .header,
@@ -190,26 +164,22 @@
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
         <div class="menu-title">Menu</div>
-        <a href="#" class="menu-item">HOME <span>&#8250;</span></a>
-        <a href="#card" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">SHOP <span>&#8250;</span></a>
         <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
-        <a href="#pages" class="menu-item">PAGES <span>&#8250;</span></a>
-        <a href="#footer" class="menu-item">BLOGS <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">BLOGS <span>&#8250;</span></a>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
     <div class="container">
-        <h2>Best Sellers</h2>
+        <h2>TOP RATED PRODUCTS</h2>
         <div class="products" id="productList"></div>
     </div>
 
     <footer>
         <p>&copy; 2025 Best Sellers. All rights reserved.</p>
-        <p>
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a>
-        </p>
     </footer>
 
     <script>
@@ -245,15 +215,9 @@
             alert(`You clicked on: ${productName}`);
         }
 
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const overlay = document.getElementById("overlay");
-            sidebar.classList.toggle("active");
-            overlay.classList.toggle("active");
-        }
-
         window.onload = loadProducts;
     </script>
+    <script src="cards.js"></script>
 </body>
 
 </html>
