@@ -3,123 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Arrivals</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="card.css">
     <style>
-        /* Center Swiper Slides */
-.swiper-container {
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-/* Ensure Cards Are in Center */
-.swiper-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Increased gap between slides */
-}
+        body {
+            background: #f4f4f4;
+            text-align: center;
+        }
 
-/* Larger and Centered Cards */
-.swiper-slide {
-    background: white;
-    padding: 25px; /* Increased padding */
-    border-radius: 15px; /* More rounded edges */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    text-align: center;
-    min-width: 350px; /* Increased width */
-    max-width: 400px;
-    height: 420px; /* Increased height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+        }
 
-/* Center Content Inside Cards */
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        footer {
+            background: #222;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-/* Bigger Images */
-.card img {
-    width: 250px; /* Increased image size */
-    height: 250px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-}
+        .slider-container {
+            width: 90%;
+            margin: 80px auto 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
 
-/* Adjust Text Size */
-.card h3 {
-    font-size: 20px;
-    font-weight: bold;
-}
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-.card p {
-    font-size: 16px;
-    color: #666;
-}
+        .slide {
+            flex: 0 0 33.33%;
+            padding: 10px;
+            transition: transform 0.5s;
+        }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    .swiper-container {
-        width: 100%;
-    }
+        /* CARD DESIGN */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
 
-    .swiper-slide {
-        min-width: 280px;
-        height: 380px;
-        padding: 20px;
-    }
+        .card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
 
-    .card img {
-        width: 200px;
-        height: 200px;
-    }
-}
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-@media (max-width: 480px) {
-    .swiper-slide {
-        min-width: 230px;
-        height: 350px;
-        padding: 15px;
-    }
+        .card:hover img {
+            transform: scale(1.1);
+        }
 
-    .card img {
-        width: 180px;
-        height: 180px;
-    }
+        .card h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #222;
+        }
 
-    .card h3 {
-        font-size: 18px;
-    }
+        .card p {
+            font-size: 14px;
+            color: gray;
+        }
 
-    .card p {
-        font-size: 14px;
-    }
-}
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+        }
 
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        @media (max-width: 768px) {
+            .slide {
+                flex: 0 0 100%;
+            }
+
+            .card {
+                transform: scale(0.9);
+            }
+
+            .slide.active .card {
+                transform: scale(1.05);
+            }
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
         <div class="menu-button" onclick="toggleSidebar()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-
+        <div class="logo">
+            <img src="https://github.com/muhammadsufiyan-git/E-Project/blob/main/logo.png?raw=true" alt="Logo">
+        </div>
         <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User">
+            <div class="search-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-aKJ9AbwvP0MGcEyOeOw_4XGgMktjq1WMsA&s"
+                    alt="Search" class="search-icon" onclick="toggleSearch()">
+                <div class="search-bar" id="searchBar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <a href="one.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="40" height="40"
+                    style="cursor: pointer;">
+            </a>
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
             <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Cart">
         </div>
@@ -127,94 +152,107 @@
 
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <a href="index.html" class="menu-item">HOME</a>
-        <a href="#" class="menu-item">SHOP</a>
-        <a href="#" class="menu-item">FEATURED</a>
-        <a href="#" class="menu-item">PAGES</a>
-        <a href="#" class="menu-item">BLOGS</a>
+        <div class="menu-title">Menu</div>
+        <a href="index.html" class="menu-item">HOME <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">SHOP <span>&#8250;</span></a>
+        <a href="slider.html" class="menu-item">FEATURED <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">PAGES <span>&#8250;</span></a>
+        <a href="index.html" class="menu-item">BLOGS <span>&#8250;</span></a>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://www.realmenrealstyle.com/wp-content/uploads/2023/06/Vanity-Glasses.jpg"
-                        alt="Card 1">
-                    <h3>BEST EYE GLASSES</h3>
-                    <p>eye wear glasses.</p>
-                </div>
+<div class="slider-container">
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <div class="slider">
+        <div class="slide">
+            <div class="card">
+                <img src="https://www.realmenrealstyle.com/wp-content/uploads/2023/06/Vanity-Glasses.jpg" alt="Card 1">
+                <h3>BEST EYE GLASSES</h3>
+                <p>Perfect eye protection.</p>
             </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://www.shutterstock.com/image-photo/happy-middle-aged-professional-business-600nw-2454390621.jpg"
-                        alt="Card 2">
-                    <h3>MEN GLASSES</h3>
-                    <p>best seller.</p>
-                </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <img src="https://www.shutterstock.com/image-photo/happy-middle-aged-professional-business-600nw-2454390621.jpg" alt="Card 2">
+                <h3>MEN GLASSES</h3>
+                <p>Top trending styles.</p>
             </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YDzph2J80gZhfpgUSwL0-5IW5kmb4HYO3Ft5QSL4UjmH4CH8Ia-r0qW5UXZryHzIiME&usqp=CAU"
-                        alt="Card 3">
-                    <h3>WEAR OF CEO</h3>
-                    <p>best for formal dressing</p>
-                </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YDzph2J80gZhfpgUSwL0-5IW5kmb4HYO3Ft5QSL4UjmH4CH8Ia-r0qW5UXZryHzIiME&usqp=CAU" alt="Card 3">
+                <h3>WEAR OF CEO</h3>
+                <p>Best for executives.</p>
             </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBf0k1EmJHV104rpsnqUw7wBuIkE7UsL-1Q&s"
-                        alt="Card 4">
-                    <h3>SPONSER</h3>
-                    <p>applying for the beautiful add.</p>
-                </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBf0k1EmJHV104rpsnqUw7wBuIkE7UsL-1Q&s" alt="Card 4">
+                <h3>SPONSOR GLASSES</h3>
+                <p>Fashionable styles.</p>
             </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoPVy9GwDvKFyxhDp4y7X56tA_YyA_5ai5A&s"
-                        alt="Card 5">
-                    <h3>EXCLUSIVE DESIGN</h3>
-                    <p>best for casual dressing.</p>
-                </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoPVy9GwDvKFyxhDp4y7X56tA_YyA_5ai5A&s" alt="Card 5">
+                <h3>EXCLUSIVE DESIGN</h3>
+                <p>Unique & stylish.</p>
             </div>
         </div>
     </div>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
 
-    <br><br><br><br><br><br><br><br><br>
+<footer>
+    <p>&copy; 2025 Best Sellers. All rights reserved.</p>
+</footer>
 
-    <footer class="footer">
-        <p>© 2024 | ELITESPEX by ThemeOcean. Powered by E-Project.</p>
-    </footer>
+<script>
+    let index = 1;
+    const slider = document.querySelector(".slider");
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const slideWidth = 100 / (window.innerWidth > 768 ? 3 : 1); 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            loop: true,
-            speed: 3000,
-            autoplay: {
-                delay: 0,
-                disableOnInteraction: false,
-            },
-            allowTouchMove: false,
-            freeMode: true,
-            freeModeMomentum: false,
-        });
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[totalSlides - 1].cloneNode(true);
+    
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
 
-        let slides = document.querySelectorAll('.swiper-slide');
-        let wrapper = document.querySelector('.swiper-wrapper');
+    let position = -slideWidth;
+    slider.style.transform = `translateX(${position}%)`;
 
-        slides.forEach(slide => {
-            let clone = slide.cloneNode(true);
-            wrapper.appendChild(clone);
-        });
+    function moveSlide(step) {
+        index += step;
+        position = -index * slideWidth;
+        slider.style.transition = "transform 0.5s ease-in-out";
+        slider.style.transform = `translateX(${position}%)`;
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-            document.getElementById('overlay').classList.toggle('active');
-        }
-    </script>
+        setTimeout(() => {
+            if (index >= totalSlides + 1) {
+                index = 1;
+                position = -index * slideWidth;
+                slider.style.transition = "none";
+                slider.style.transform = `translateX(${position}%)`;
+            } else if (index <= 0) {
+                index = totalSlides;
+                position = -index * slideWidth;
+                slider.style.transition = "none";
+                slider.style.transform = `translateX(${position}%)`;
+            }
+        }, 500);
+    }
+
+    let autoSlide = setInterval(() => moveSlide(1), 3000);
+
+    document.querySelector(".slider-container").addEventListener("mouseenter", () => clearInterval(autoSlide));
+    document.querySelector(".slider-container").addEventListener("mouseleave", () => {
+        autoSlide = setInterval(() => moveSlide(1), 3000);
+    });
+</script>
+
+<script src="cards.js"></script>
+
 </body>
 </html>
