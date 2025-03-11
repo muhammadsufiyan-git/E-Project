@@ -205,17 +205,16 @@ body {
     animation: bgZoom 6s ease-in-out infinite alternate;
 }
 
-/* Background Zoom Effect */
 @keyframes bgZoom {
     from {
         transform: scale(1);
     }
+
     to {
         transform: scale(1.1);
     }
 }
 
-/* Text Animation */
 .carousel-caption {
     position: absolute;
     top: 50%;
@@ -232,13 +231,13 @@ body {
         opacity: 0;
         transform: translate(-50%, -40%);
     }
+
     to {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 }
 
-/* Button Styling */
 .btn-shop {
     background-color: white;
     color: black;
@@ -248,7 +247,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Navigation Controls */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: white;
@@ -256,18 +254,20 @@ body {
     padding: 10px;
 }
 
-/* Responsive Mobile View */
 @media (max-width: 768px) {
     .carousel-caption h2 {
         font-size: 1.8rem;
     }
+
     .carousel-caption p {
         font-size: 0.9rem;
     }
+
     .btn-shop {
         padding: 8px 15px;
         font-size: small;
     }
+
     .carousel-inner img {
         height: 400px;
         object-fit: cover;
@@ -300,7 +300,7 @@ body {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding-bottom: 56.25%; 
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 10px;
@@ -329,6 +329,7 @@ body {
         max-width: 100%;
     }
 }
+
 /* video section close  */
 
 /* buttons special collection css */
@@ -476,7 +477,100 @@ body {
     opacity: 1;
     transform: translateX(0);
 }
-/*cards close*/
+
+.product-card {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: rotateY(20deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(211, 211, 211, 0.3);
+    filter: brightness(1.1);
+}
+
+.product-card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-card:active {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.product-card img {
+    width: 100%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-card img:active {
+    animation: imgBounce 0.4s ease;
+}
+
+@keyframes imgBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2) contrast(1.1);
+}
+
+.product-card h6,
+.product-card p {
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.product-card:hover h6 {
+    transform: translateY(-5px);
+    color: #ff6600;
+}
+
+.product-card:hover p {
+    transform: translateY(5px);
+    color: #ff3300;
+}
+
+/*cards close */
 /* Testimonials Section */
 .testimonial-box {
     background: #f9f9f9;
