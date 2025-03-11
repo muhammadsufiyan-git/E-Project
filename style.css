@@ -194,9 +194,28 @@ body {
 /* header close  */
 /* slider start  */
 .carousel-item {
-    position: relative;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: scale(0.95);
 }
 
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+    animation: bgZoom 6s ease-in-out infinite alternate;
+}
+
+/* Background Zoom Effect */
+@keyframes bgZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Text Animation */
 .carousel-caption {
     position: absolute;
     top: 50%;
@@ -204,51 +223,54 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-in-out forwards;
 }
 
-.carousel-item img {
-    height: 500px;
-    object-fit: cover;
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
-
-.carousel-caption h1 {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.carousel-caption p {
-    font-size: 1.2rem;
-}
-
-.carousel-caption .btn {
-    background: #ff7f50;
-    color: white;
+/* Button Styling */
+.btn-shop {
+    background-color: white;
+    color: black;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-weight: bold;
     border-radius: 5px;
-    text-decoration: none;
+    text-transform: uppercase;
 }
 
-.carousel-caption .btn:hover {
-    background: #e66b3f;
+/* Navigation Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
 }
 
+/* Responsive Mobile View */
 @media (max-width: 768px) {
-    .carousel-caption h1 {
-        font-size: 2rem;
+    .carousel-caption h2 {
+        font-size: 1.8rem;
     }
-
     .carousel-caption p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
-
-    .carousel-caption {
-        width: 90%;
+    .btn-shop {
+        padding: 8px 15px;
+        font-size: small;
+    }
+    .carousel-inner img {
+        height: 400px;
+        object-fit: cover;
     }
 }
 
@@ -440,6 +462,20 @@ body {
     color: #ff0000;
 }
 
+.product-card {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease-in-out;
+}
+
+.product-card:nth-child(even) {
+    transform: translateX(50px);
+}
+
+.product-card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
 /*cards close*/
 /* Testimonials Section */
 .testimonial-box {
