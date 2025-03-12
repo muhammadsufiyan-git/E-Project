@@ -215,17 +215,6 @@ body {
     }
 }
 
-.carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    opacity: 0;
-    animation: fadeInText 1.2s ease-in-out forwards;
-}
-
 @keyframes fadeInText {
     from {
         opacity: 0;
@@ -240,7 +229,7 @@ body {
 
 .btn-shop {
     background-color: white;
-    color: black;
+    color: white;
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
